@@ -36,6 +36,7 @@ const usersData = [
   ];
 
   //Creo una función para filtrar según la especialidad, debo probar a hacerlo en una solo y no duplicarla varias veces
+  //Reducida la función para filtrar por especialidad utilizando una única función
 function filtrarEspecialidad(specialty) {
     return usersData.filter(user => user.specialty === specialty);
 }
