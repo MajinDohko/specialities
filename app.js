@@ -36,10 +36,10 @@ const usersData = [
   ];
 
   //Creo una función para filtrar según la especialidad, debo probar a hacerlo en una solo y no duplicarla varias veces
-function filtrarEspecilidad(specialty) {
+function filtrarEspecialidad(specialty) {
     return usersData.filter(user => user.specialty === specialty);
 }
-filtrarEspecilidad();
+filtrarEspecialidad();
 
 
 //Utilizamos la llamada del .get para crear cada enlace web
@@ -50,7 +50,7 @@ app.get('/', (req, res) =>{
 
 //Creamos cada enlace con el filtro de los usuarios según su especialidad
 app.get('/marketing', (req, res) =>{
-    const usuariosMarketing = filtrar('marketing');
+    const usuariosMarketing = filtrarEspecialidad('marketing');
     const listaMarketing = usuariosMarketing.map(user => `<li>${user.name}</li>`)
     res.send (
         `<h1>Aquí están las personas de marketing</h1>
@@ -64,7 +64,7 @@ app.get('/marketing', (req, res) =>{
 })
 
 app.get('/ventas', (req, res) =>{
-    const usuariosVentas = filtrarEspecilidad('ventas');
+    const usuariosVentas = filtrarEspecialidad('ventas');
     const listaVentas = usuariosVentas.map(user => `<li>${user.name}</li>`)
     res.send (
         `<h1>Aquí están las personas de ventas</h1>
@@ -78,7 +78,7 @@ app.get('/ventas', (req, res) =>{
 })
 
 app.get('/developers', (req, res) =>{
-    const usuariosDevelopers = filtrarEspecilidad('developers');
+    const usuariosDevelopers = filtrarEspecialidad('developers');
     const listaDevelopers = usuariosDevelopers.map(user => `<li>${user.name}</li>`)
     res.send (
         `<h1>Aquí están las personas de marketing</h1>
@@ -92,7 +92,7 @@ app.get('/developers', (req, res) =>{
 })
 
 app.get('/qas', (req, res) =>{
-    const usuariosQas = filtrarEspecilidad('QAs');
+    const usuariosQas = filtrarEspecialidad('QAs');
     const listaQas = usuariosQas.map(user => `<li>${user.name}</li>`)
     res.send (
         `<h1>Aquí están las personas de marketing</h1>
